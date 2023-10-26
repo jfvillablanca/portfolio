@@ -10,6 +10,10 @@ module.exports = {
                     'Heebo',
                     ...defaultTheme.fontFamily.sans,
                 ],
+                mono: [
+                    'Ubunto Mono',
+                    ...defaultTheme.fontFamily.mono,
+                ],
             }
         },
     },
