@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ProjectPlaceholder from '../assets/images/project-placeholder.png'
+import { ExternalLink } from 'lucide-vue-next'
 
 type Project = {
     name: string
@@ -96,6 +97,33 @@ const projects: Project[] = [
 
 <template>
     <h1 class="section-header">Recent Works</h1>
+    <ul>
+        <li v-for="project in projects" :key="project.name" class="project-card">
+            <figure>
+                <img :src="project.images[0]" alt="" />
+            </figure>
+            <div class="project-info">
+                <div class="flex gap-2">
+                    <h1 class="project-name">
+                        {{ project.name }}
+                    </h1>
+                    <a :href="project.githubRepo" target="_blank">
+                        <ExternalLink />
+                    </a>
+                </div>
+                <p class="project-description font-sans">{{ project.description }}</p>
+                <ul class="technologies">
+                    <li
+                        v-for="technology in project.technologies"
+                        :key="technology"
+                        class="font-sans font-semibold"
+                    >
+                        {{ technology }}
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <style scoped lang="scss">
@@ -103,5 +131,55 @@ const projects: Project[] = [
     margin-block: 2rem;
 
     font-size: 4rem;
+}
+
+.project-card {
+    --color-a: #04a777;
+
+    margin-bottom: 3rem;
+
+    display: flex;
+    gap: 1rem;
+
+    .project-info {
+        width: 70%;
+
+        a {
+            text-decoration: none;
+            color: var(--color-a);
+            transition: 0.4s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            --color-a: #4cfac6;
+            a {
+                color: var(--color-a);
+            }
+        }
+
+        .project-name {
+            margin-bottom: 1rem;
+
+            font-size: 3.6rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.8rem;
+
+            font-size: 2rem;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            li {
+                border-width: 1px;
+                border-radius: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
 }
 </style>
