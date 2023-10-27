@@ -24,6 +24,11 @@
                 package = pkgs.nodejs_20;
                 corepack.enable = true;
               };
+              packages = with pkgs; [ chromium ];
+              env = with pkgs; {
+                  PUPPETEER_SKIP_DOWNLOAD = true;
+                  PUPPETEER_EXECUTABLE_PATH = "${chromium}/bin/chromium";
+              };
             }
           ];
         };
