@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { Shell } from 'lucide-vue-next'
+import { Github, Linkedin, Shell } from 'lucide-vue-next'
 </script>
 
 <template>
@@ -20,23 +20,44 @@ import { Shell } from 'lucide-vue-next'
     <main>
         <RouterView />
     </main>
+
+    <footer>
+        <nav class="">
+            <a href="https://github.com/jfvillablanca" target="_blank">
+                <Github />
+            </a>
+            <a href="https://www.linkedin.com/in/jmfv" target="_blank">
+                <Linkedin />
+            </a>
+        </nav>
+        <p>This is a public domain software by Jann Marc Villablanca</p>
+    </footer>
 </template>
 
 <style scoped lang="scss">
 nav {
     --color-a: #04a777;
 
+    @media (prefers-color-scheme: dark) {
+        --color-a: #4cfac6;
+        a {
+            color: var(--color-a);
+        }
+    }
+
+    .logo {
+        color: var(--color-a);
+        transition: 0.4s;
+    }
+}
+
+header nav {
     margin-top: 3rem;
 
     display: flex;
     justify-content: space-between;
 
     font-size: 2.4rem;
-
-    .logo {
-        color: var(--color-a);
-        transition: 0.4s;
-    }
 
     .links {
         width: 30%;
@@ -69,12 +90,33 @@ nav {
             background-color: var(--color-a);
         }
     }
+}
 
-    @media (prefers-color-scheme: dark) {
-        --color-a: #4cfac6;
-        a {
-            color: var(--color-a);
+main {
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    font-size: 1.8rem;
+
+    nav {
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 1rem;
+
+        svg {
+            height: 3.6rem;
+            width: auto;
         }
+    }
+
+    p {
+        margin-bottom: 1rem;
     }
 }
 </style>
