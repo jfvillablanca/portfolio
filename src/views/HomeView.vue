@@ -20,23 +20,40 @@
 
 <style scoped lang="scss">
 .container {
-    margin-top: 20%;
+    margin-top: 30%;
     display: grid;
     place-items: center;
 
     h1 {
-        font-size: 10rem;
+        font-size: 6rem;
     }
 
     .statement {
-        font-size: 3rem;
+        font-size: 2rem;
 
         display: flex;
         align-items: center;
     }
 
     h3 {
-        font-size: 4rem;
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin-top: 20%;
+        h1 {
+            font-size: 10rem;
+        }
+
+        .statement {
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-size: 4rem;
+        }
     }
 }
 </style>
