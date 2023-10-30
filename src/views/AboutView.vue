@@ -90,7 +90,7 @@ const thingsToLearn = [
 
     .things-to-learn {
         display: flex;
-        align-items: center;
+        align-items: start;
         gap: 0.5rem;
 
         p {
