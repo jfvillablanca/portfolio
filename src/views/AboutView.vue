@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRight } from 'lucide-vue-next'
+import { ChevronRight, ExternalLink } from 'lucide-vue-next'
 const thingsToLearn = [
     'Vue 3 and the Composition API',
     'CLI Development',
@@ -30,7 +30,10 @@ const thingsToLearn = [
         <p class="section-paragraph font-sans">
             I live and breath <span class="accented">open source</span>! I am a proud member of the
             Nix community and I help maintain several packages in the
-            <a href="https://github.com/NixOS/nixpkgs" target="_blank">Nixpkgs</a>
+            <a class="inline-flex gap-2" href="https://github.com/NixOS/nixpkgs" target="_blank">
+                Nixpkgs
+                <ExternalLink :size="16" />
+            </a>
             repository.
         </p>
 
