@@ -136,14 +136,16 @@ const projects: Project[] = [
 .project-card {
     --color-a: #04a777;
 
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
 
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
 
     .project-info {
-        width: 70%;
-
+        margin-top: 2rem;
+        margin-inline: 2rem;
         a {
             text-decoration: none;
             color: var(--color-a);
@@ -179,6 +181,19 @@ const projects: Project[] = [
                 border-radius: 1rem;
                 padding: 0.5rem 1rem;
             }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .project-card {
+        flex-direction: row;
+        align-items: start;
+        gap: 2rem;
+
+        .project-info {
+            margin-top: 0;
+            width: 70%;
         }
     }
 }
