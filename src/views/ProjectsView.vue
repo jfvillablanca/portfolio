@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import ProjectPlaceholder from '../assets/images/project-placeholder.png'
+import ProjectBourne from '../assets/images/project-bourne-task-app.png'
+import ProjectConverz from '../assets/images/project-converz.png'
+import ProjectFastFood from '../assets/images/project-fast-food-app.png'
+import ProjectFlatr from '../assets/images/project-flatr.gif'
+import ProjectOnano from '../assets/images/project-onano.gif'
+import ProjectQuizzical from '../assets/images/project-quizzical.gif'
 import { ExternalLink } from 'lucide-vue-next'
 
 type Project = {
@@ -32,7 +37,7 @@ const projects: Project[] = [
             'Eslint',
         ],
         githubRepo: 'https://github.com/jfvillablanca/bourne-task-app',
-        images: [ProjectPlaceholder],
+        images: [ProjectBourne],
     },
     {
         name: 'Converz Real Time Chat App',
@@ -50,7 +55,7 @@ const projects: Project[] = [
             'Eslint',
         ],
         githubRepo: 'https://github.com/jfvillablanca/converz-rtc',
-        images: [ProjectPlaceholder],
+        images: [ProjectConverz],
     },
     {
         name: 'Fast Food App',
@@ -67,14 +72,14 @@ const projects: Project[] = [
             'Eslint',
         ],
         githubRepo: 'https://github.com/jfvillablanca/ionic-vue',
-        images: [ProjectPlaceholder],
+        images: [ProjectFastFood],
     },
     {
         name: 'Onano Text Editor',
         description: 'A simple text editor written in Rust based on the GNU nano',
         technologies: ['Rust', 'Termion', 'Unicode-Segmentation'],
         githubRepo: 'https://github.com/jfvillablanca/onano',
-        images: [ProjectPlaceholder],
+        images: [ProjectOnano],
     },
     {
         name: 'Flatr',
@@ -82,7 +87,7 @@ const projects: Project[] = [
             'A CLI app written in Rust with the Clap crate. It takes a JSON file then flattens the key-value pairs and prints to standard output',
         technologies: ['Rust', 'Serde_Json', 'Clap', 'Colored'],
         githubRepo: 'https://github.com/jfvillablanca/flatr',
-        images: [ProjectPlaceholder],
+        images: [ProjectFlatr],
     },
     {
         name: "Let's get quizzical",
@@ -90,7 +95,7 @@ const projects: Project[] = [
             'A React app that retrieves quiz items from the Open Trivia Database through Fetch API calls',
         technologies: ['React', 'Vite', 'SCSS'],
         githubRepo: 'https://github.com/jfvillablanca/lets-get-quizzical',
-        images: [ProjectPlaceholder],
+        images: [ProjectQuizzical],
     },
 ]
 </script>
