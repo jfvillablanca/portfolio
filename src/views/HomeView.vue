@@ -42,7 +42,7 @@
 
 @media (min-width: 768px) {
     .container {
-        margin-top: 20%;
+        margin-top: 15%;
         h1 {
             font-size: 10rem;
         }
