@@ -22,7 +22,7 @@ import { Github, Linkedin, Shell } from 'lucide-vue-next'
     </main>
 
     <footer>
-        <nav class="">
+        <nav>
             <a href="https://github.com/jfvillablanca" target="_blank">
                 <Github />
             </a>
@@ -117,6 +117,15 @@ footer {
 
     p {
         margin-bottom: 1rem;
+        text-align: center;
+
+        font-size: 1.4rem;
+    }
+
+    @media (min-width: 640px) {
+        p {
+            font-size: 1.8rem;
+        }
     }
 }
 </style>
