@@ -1,6 +1,26 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { Github, Linkedin, Shell } from 'lucide-vue-next'
+import { Github, Linkedin, Menu, Shell } from 'lucide-vue-next'
+import { ref, onMounted } from 'vue'
+
+const isShowMenu = ref(false)
+function toggleMenu() {
+    isShowMenu.value = !isShowMenu.value
+}
+
+function hideMenu() {
+    isShowMenu.value = false
+}
+
+onMounted(() => {
+    document.addEventListener('click', () => {
+        hideMenu()
+    })
+
+    document.addEventListener('scroll', () => {
+        hideMenu()
+    })
+})
 </script>
 
 <template>
@@ -9,10 +29,13 @@ import { Github, Linkedin, Shell } from 'lucide-vue-next'
             <RouterLink to="/">
                 <Shell class="logo" :size="60" />
             </RouterLink>
-            <div class="links">
-                <RouterLink to="/about">About</RouterLink>
-                <RouterLink to="/projects">Projects</RouterLink>
-                <RouterLink to="/blog">Blog</RouterLink>
+            <button class="menu-button" @click.stop="toggleMenu">
+                <Menu />
+            </button>
+            <div :class="['links', { visible: isShowMenu }]">
+                <RouterLink to="/about" @click.stop="hideMenu">About</RouterLink>
+                <RouterLink to="/projects" @click.stop="hideMenu">Projects</RouterLink>
+                <RouterLink to="/blog" @click.stop="hideMenu">Blog</RouterLink>
             </div>
         </nav>
     </header>
@@ -38,6 +61,8 @@ import { Github, Linkedin, Shell } from 'lucide-vue-next'
 nav {
     --color-a: #04a777;
 
+    position: relative;
+
     @media (prefers-color-scheme: dark) {
         --color-a: #4cfac6;
         a {
@@ -59,35 +84,74 @@ header nav {
 
     font-size: 2.4rem;
 
-    .links {
-        width: 30%;
-        height: min-content;
+    .menu-button {
+        color: var(--color-a);
+        transition: 0.4s;
+
+        svg {
+            height: 3rem;
+            width: auto;
+        }
+    }
+
+    a {
+        position: relative;
+
+        text-decoration: none;
+        color: var(--color-a);
+        transition: 0.4s;
+    }
+
+    a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        background-color: transparent;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    a:hover::before {
+        transform: scaleX(1.3);
+        background-color: var(--color-a);
+    }
+
+    .links.visible {
+        position: absolute;
+        right: 0;
+        top: 100%;
+
         display: flex;
-        justify-content: space-between;
+        gap: 2rem;
+        flex-direction: column;
+        align-items: flex-end;
 
-        a {
-            position: relative;
+        padding: 1.2rem;
+        border-width: 1px;
+        border-color: var(--color-border);
+        border-radius: 1rem;
 
-            text-decoration: none;
-            color: var(--color-a);
-            transition: 0.4s;
+        background-color: var(--color-background-mute);
+    }
+
+    .links {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .menu-button {
+            display: none;
         }
 
-        a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -1px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease;
-        }
-
-        a:hover::before {
-            transform: scaleX(1.3);
-            background-color: var(--color-a);
+        .links {
+            width: 30%;
+            height: min-content;
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
         }
     }
 }
