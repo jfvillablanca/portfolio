@@ -47,9 +47,6 @@ const thingsToLearn = [
                 <p>{{ thing }}</p>
             </li>
         </ul>
-        <p class="section-paragraph font-sans">
-            Right now, I'm currently taking Harvard's CS50 course as a refresher to my CS knowledge.
-        </p>
 
         <h1 class="section-header">Beyond the keyboard and screen</h1>
         <p class="section-paragraph font-sans">
