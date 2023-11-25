@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ProjectCS50 from '../assets/images/project-cs50.png'
 import ProjectBourne from '../assets/images/project-bourne-task-app.png'
 import ProjectConverz from '../assets/images/project-converz.png'
 import ProjectFastFood from '../assets/images/project-fast-food-app.png'
@@ -96,6 +97,14 @@ const projects: Project[] = [
         technologies: ['React', 'Vite', 'SCSS'],
         githubRepo: 'https://github.com/jfvillablanca/lets-get-quizzical',
         images: [ProjectQuizzical],
+    },
+    {
+        name: 'CS50: Introduction to Computer Science',
+        description:
+            "Completed Harvard's CS50, refining skills in C, Python, and SQL. Valuable refresher to solidify computer science knowledge. Documented progress on GitHub which includes solutions to problem sets written in other languages such as Rust.",
+        technologies: ['C', 'Python', 'Flask', 'SQL', 'HTML', 'Javascript', 'CSS', 'Rust'],
+        githubRepo: 'https://github.com/jfvillablanca/cs50',
+        images: [ProjectCS50],
     },
 ]
 </script>
