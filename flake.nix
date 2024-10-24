@@ -3,46 +3,44 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     devenv.url = "github:cachix/devenv";
-    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, devenv, flake-utils, rust-overlay, ... } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ (import rust-overlay) ];
-        };
-      in
-      {
-        devShells.default = devenv.lib.mkShell {
-          inherit inputs pkgs;
-          modules = [
-            {
-              name = "jmfv-portfolio";
-              languages.javascript = {
-                enable = true;
-                package = pkgs.nodejs_20;
-              };
-              packages = with pkgs; [
-                yarn
+  outputs = {
+    self,
+    nixpkgs,
+    devenv,
+    flake-utils,
+    ...
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+      };
 
-                gcc
-                (rust-bin.selectLatestNightlyWith (tc: tc.default.override {
-                  extensions = [
-                    "rust-analyzer"
-                    "rust-src"
-                    "clippy"
-                  ];
-                  targets = [ "wasm32-unknown-unknown" ];
-                }))
+      tex = pkgs.texlive.combine {
+        inherit (pkgs.texlive) scheme-small moderncv lato fontawesome enumitem fontaxes;
+      };
+    in {
+      devShells.default = devenv.lib.mkShell {
+        inherit inputs pkgs;
+        modules = [
+          {
+            name = "jmfv-portfolio";
+            languages = {
+              javascript.enable = true;
+              nix.enable = true;
+            };
+            packages = with pkgs; [
+              yarn
 
-                cargo-watch
-                trunk
-                leptosfmt
-              ];
-            }
-          ];
-        };
-      });
+              alejandra
+              entr
+              just
+
+              tex
+            ];
+          }
+        ];
+      };
+    });
 }
