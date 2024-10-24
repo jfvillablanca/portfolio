@@ -1,0 +1,181 @@
+\documentclass[11pt,letterpaper]{article}
+\author{Jann Marc Villablanca}
+\title{Resume}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[default, scale=0.8]{lato}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{fontawesome}
+\usepackage{enumitem}
+\DeclareFontFamily{U}{fontawesomeOne}{}
+\DeclareFontShape{U}{fontawesomeOne}{m}{n}
+{<-> FontAwesome--fontawesomeone}{}
+\DeclareRobustCommand\FAone{\fontencoding{U}\fontfamily{fontawesomeOne}\selectfont}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+
+\newenvironment{pipeseparateditemize}[1][]{
+    \begin{itemize}[label={}, #1]
+        % hacky workaround to make LaTeX compile since {itemize} is expecting an \item
+        \item
+    \def\separator{}
+    \def\item{\ifhmode \unskip\space|\space\fi\relax\ignorespaces\separator}
+}{%
+    \end{itemize}
+}
+
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+#1 &
+#2 \\
+\end{tabular*}}
+
+
+% Format three pieces of text: left aligned, center aligned, and right aligned
+\newcommand{\headerrowthree}[3]{%
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r}
+    #1 & % Left aligned
+    #2 & % Center aligned
+    #3 \\ % Right aligned
+  \end{tabular*}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{center}
+	{\LARGE \textbf{Jann Marc Villablanca}}\\
+	Quezon City, Philippines
+	\vspace{0.05cm}
+	\\
+	\raisebox{-0.2\height}{\Large \faEnvelopeSquare} \ \ jmfv.dev@gmail.com \hfill \raisebox{-0.2\height}{\Large \faGithubSquare} \ \ github.com/jfvillablanca \hfill \raisebox{-0.2\height}{\Large \faLinkedinSquare} \ \ linkedin.com/in/jmfv
+\end{center}
+
+\hrule
+\vspace{-1em}
+\subsection*{\Large Skills}
+
+\begin{pipeseparateditemize}[leftmargin=1em,noitemsep]
+    \item Javascript
+    \item Typescript
+    \item Node
+    \item Express
+    \item MongoDB
+    \item React
+    \item Redux
+    \item Vue
+    \item TailwindCSS
+    \item Tanstack
+    \item Git
+    \item CI/CD
+    \item Nix
+    \item Docker
+    \item MaterialUI
+    \item Jest
+    \item Python
+    \item Rust
+    \item Haskell
+    \item Unit Testing
+    \item Integration Testing
+    \item Frontend
+    \item Backend
+    \item Full-Stack
+\end{pipeseparateditemize}
+
+\vspace{-2em}
+\subsection*{\Large Experience}
+
+\renewcommand\labelitemi{}
+\renewcommand\labelitemii{$\bullet$}
+\begin{itemize}[leftmargin=1em]
+	\parskip=0.1em
+	\item
+	      \headerrowthree
+          {\textbf{\textit{Software Engineer}}}
+	      {\textbf{Bridge360 PH}}
+	      {\textbf{December 2023 - Present}}
+	      \begin{itemize*}
+            \item \textbf{Reported directly to CEO}: Led the development and enhancement of the Accounting system under the ADAL EMS module suite. 
+            \item Created an application that enables the project manager to test pull requests by the team. The goal was to enable any non-technical team member to run a sandboxed environment and this was realized with the use of Nix.
+            \item Developed the ADAL EMS module for the Point of Sale (POS) system that services multiple concessionaires.
+            \item Reduced API latency on search queries by 500\% by using server-side pagination for large payloads.
+            \item Improved developer experience by introducing git hooks that runs automated linting and formatting before reaching the pull request stage which markedly dropped the code review time by 50\%.
+            \item Completely eliminated build failures in production by integrating CI via GitHub Actions in all codebases used in production.
+            \item Mentored junior developers on basic to advanced git workflows that significantly improved the development feedback cycle and enhanced the git history in all codebases.
+            \item Conducted comprehensive code reviews that increases the code health on every pull request to the codebase.
+            \item Initiated the Typescript migration of our Web and API service codebases through automated scripts.
+	      \end{itemize*}
+	      	      
+  \subsubsection*{\Large Open Source Software Contributor}
+	\item
+	      \headerrowthree
+          {\textbf{\textit{Nixpkgs maintainer}}}
+	      {github.com/\textbf{NixOS/nixpkgs}}
+	      {\textbf{April 2023 - Present}}
+          {\emph{\textbf{nixpkgs} is the largest and the most-up-to-date package repository for Unix-based systems}}
+ 
+	      \begin{itemize*}
+            \item Actively maintains multiple software packages that are served in stable and unstable channels of nixpkgs.
+            \item Open-source projects packaged ranges from, but not limited to, Rust-based applications, Python libraries, and Vim plugins.
+	      \end{itemize*}
+
+	\item
+	      \headerrowthree
+          {\textbf{\textit{Core maintainer}}}
+	      {github.com/\textbf{neon-mmd/websurfx}}
+	      {\textbf{December 2023 - Present}}
+          {\emph{\textbf{websurfx} is a modern, lightning-fast, privacy-oriented, and secure meta search engine written in Rust.}}
+
+	      \begin{itemize*}
+            \item Integrated two (2) additional search engines to the aggregated search results, namely: \textbf{Mojeek} and \textbf{Bing}
+            \item Enhanced the documentation for NixOS contributors and maintained the project's \textit{flake.nix}
+            \item Added support for JSON response from upstream search engines
+	      \end{itemize*}
+	      	      
+\subsubsection*{\Large Previous Professional Experience}
+	\item
+	      \headerrow
+	      {\textbf{Striga Bikes Enterprises}}
+	      {\textbf{Valenzuela City, Philippines}}
+	      \headerrow
+	      {\emph{E-Commerce Manager and Warehouse Operations Engineer}}
+	      {\emph{May 2020 - September 2022}}
+	      \begin{itemize*}
+            \item Led the transformation from a brick-and-mortar business to a successful multichannel/omnichannel fulfillment service for a niche e-commerce product.
+	      \end{itemize*}
+	      	      
+	\item
+	      \headerrow
+	      {\textbf{DOST - Philippine Nuclear Research Institute}}
+	      {\textbf{Quezon City, Philippines}}
+	      \headerrow
+	      {\emph{Science Research Specialist}}
+	      {\emph{January 2019 - February 2020}}
+	      \begin{itemize*}
+            \item Led the design and development of a Cesium-137 source in-situ calibration system for the monitoring stations. Also served as the field engineer during installations, ensuring optimal performance and reliable data acquisition.
+	      \end{itemize*}
+\end{itemize}
+
+\hrule
+\vspace{-1em}
+\subsection*{\Large Education}
+
+\begin{itemize}[leftmargin=1em]
+	\parskip=0.1em
+		
+	\item
+	      \headerrow
+	      {\textbf{University of the Philippines - Diliman}}
+	      {\textbf{Quezon City, Philippines}}
+	      \headerrow
+	      {\emph{B.S. Electronics and Communications Engineering}}
+	      {\emph{June 2013 -- December 2018}}
+	      	      
+\end{itemize}
+
+\end{document}
