@@ -9,6 +9,14 @@
 \usepackage{textcomp}
 \usepackage{fontawesome}
 \usepackage{enumitem}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{1ex}{1ex}
+\titlespacing*{\subsection}
+{0pt}{1ex}{1ex}
+\titlespacing*{\subsubsection}
+{0pt}{1ex}{1ex}
+
 \DeclareFontFamily{U}{fontawesomeOne}{}
 \DeclareFontShape{U}{fontawesomeOne}{m}{n}
 {<-> FontAwesome--fontawesomeone}{}
@@ -57,8 +65,7 @@
 \end{center}
 
 \hrule
-\vspace{-1em}
-\subsection*{\Large Skills}
+\section*{\Large Skills}
 
 \begin{pipeseparateditemize}[leftmargin=1em,noitemsep]
     \item Javascript
@@ -87,8 +94,7 @@
     \item Full-Stack
 \end{pipeseparateditemize}
 
-\vspace{-2em}
-\subsection*{\Large Experience}
+\section*{\Large Experience}
 
 \renewcommand\labelitemi{}
 \renewcommand\labelitemii{$\bullet$}
@@ -111,7 +117,7 @@
             \item Developed the ADAL EMS module for the Point of Sale (POS) system that services multiple concessionaires.
 	      \end{itemize*}
 	      	      
-  \subsubsection*{\Large Open Source Software Contributor}
+  \subsubsection*{\large Open Source Software Contributor}
 	\item
 	      \headerrowthree
           {\textbf{\textit{Nixpkgs maintainer}}}
@@ -137,7 +143,7 @@
             \item Added support for JSON response from upstream search engines
 	      \end{itemize*}
 	      	      
-\subsubsection*{\Large Previous Professional Experience}
+\subsubsection*{\large Previous Professional Experience}
 	\item
 	      \headerrow
 	      {\textbf{Striga Bikes Enterprises}}
@@ -162,8 +168,7 @@
 \end{itemize}
 
 \hrule
-\vspace{-1em}
-\subsection*{\Large Education}
+\section*{\Large Education}
 
 \begin{itemize}[leftmargin=1em]
 	\parskip=0.1em
