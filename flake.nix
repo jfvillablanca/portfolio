@@ -18,7 +18,7 @@
       };
 
       tex = pkgs.texlive.combine {
-        inherit (pkgs.texlive) scheme-small moderncv lato fontawesome enumitem fontaxes;
+        inherit (pkgs.texlive) scheme-small moderncv lato fontawesome enumitem fontaxes titlesec;
       };
     in {
       devShells.default = devenv.lib.mkShell {
