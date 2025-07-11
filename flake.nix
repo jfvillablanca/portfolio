@@ -34,6 +34,7 @@
               yarn
 
               alejandra
+              nixd
               entr
               just
 
